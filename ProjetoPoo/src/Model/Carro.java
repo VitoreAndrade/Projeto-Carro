@@ -2,14 +2,19 @@ package Model;
 
 public class Carro {
 
-    Motor motor;
+    private Motor motor;
     private String marca;
     private String modelo;
     private int ano;
-    private int acelerar;
     private double quilometragem;
 
-    public Carro(String marca, String modelo, int ano, Motor motor) {
+    public Carro(String marca, String modelo, int ano) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+    }
+
+    public Carro(String marca, String modelo, int ano,Motor motor) {
         this.marca = marca;
         this.modelo = modelo;
         this.ano = ano;
@@ -49,27 +54,19 @@ public class Carro {
     }
 
     public void rodar(double quilometragemPercorrida) {
-        if (motor.isLigado()) {
-            if (quilometragemPercorrida >= 0) {
-                this.quilometragem += quilometragemPercorrida;
-            }
+        if (quilometragemPercorrida >= 0) {
+            this.quilometragem += quilometragemPercorrida;
         }
     }
 
     public void ligarCarro() {
+        System.out.println("Ligando o carro...");
         motor.ligar();
-        System.out.println("Carro ligado");
-
-
-    }
-
-    public void desligarCarro() {
-        System.out.println("Carro desligado");
-        motor.desligar();
     }
 
     public String toString() {
-        return "Carro " + " - " + "Marca: " + marca + " - " + "Modelo: " + modelo + " - " + "Ano: " + ano + " - " + "Quilometros percorridos: " + quilometragem + " - " + "Motor: " + motor;
+        return "Marca: " + marca + "\n" + "Modelo: " + modelo + "\n" + "Ano: " + ano;
+
 
     }
 }

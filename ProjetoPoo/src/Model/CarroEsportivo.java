@@ -6,8 +6,8 @@ public class CarroEsportivo extends Carro {
     private int velocidadeAtual;
 
 
-    public CarroEsportivo(String marca, String modelo, int ano, int velocidadeMaxima, Motor motor) {
-        super(marca, modelo, ano, motor);
+    public CarroEsportivo(String marca, String modelo, int ano, int velocidadeMaxima) {
+        super(marca, modelo, ano);
         this.velocidadeMaxima = velocidadeMaxima;
     }
 
@@ -27,17 +27,14 @@ public class CarroEsportivo extends Carro {
         this.velocidadeMaxima = velocidadeMaxima;
     }
 
-    public void acelerar(int velocidade) {
-        if (motor.isLigado()) {
-            setVelocidadeAtual(velocidade + getVelocidadeAtual());
-            if (velocidade > 0) {
-                System.out.println("motor ligado");
-            }
-        }
+    public void acelerar() {
+        System.out.println("Acelerando o carro esportivo!");
+        setVelocidadeAtual(10 + getVelocidadeAtual());
     }
 
     @Override
     public String toString() {
-        return "Carro esportivo: " + " - " + "Marca: " + getMarca() + " - " + "Modelo: " + getModelo() + " - " + "Ano: " + getAno() + " - " + "Velocidade maxima: " + velocidadeMaxima + " km/h " + " - " + "Velocidade atual: " + velocidadeAtual + " km/h " + "Motor: " + motor;
+        return "Marca: " + getMarca() + " - " + "Modelo: " + getModelo() + " - " + "Ano: " + getAno() + " - " + "Velocidade maxima: " + velocidadeMaxima + " km/h ";
+
     }
 }
